@@ -1,0 +1,29 @@
+---
+title: "First_Leaflet"
+author: "Panurat"
+date: "2023-11-13"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Overview
+
+This is a project for the course Developing Data Products on Coursera as part of the Data Science specialisation.
+So, here's a random tourist spots that I pick up from my country, Thailand.
+
+## Coding
+
+```{r import}
+library(leaflet)
+```
+
+```{r map}
+monuments<-data.frame(lat=c(7.7461,13.3602,12.60924),lng=c(98.7784,99.9130,102.11865),name=c("Phi Phi Island","Amphawa District","Cathedral of the Immaculate Conception"))
+my_map<-monuments %>% leaflet() %>% addTiles() %>% addMarkers(popup =monuments$name,clusterOptions = markerClusterOptions())
+my_map
+```
+
+
